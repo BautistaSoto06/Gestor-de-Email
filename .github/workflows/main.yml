@@ -1,0 +1,37 @@
+name: Maven CI - Ejecutar Tests
+
+# Define cuándo se ejecutará el workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    # Este nombre (build_and_test) debe ser el mismo que configures
+    # en la Regla de Protección de Rama de GitHub.
+    runs-on: ubuntu-latest
+
+    steps:
+    - name:  Checkout del Código
+      # Trae tu código al runner de GitHub
+      uses: actions/checkout@v4
+
+    - name:  Configurar Java y Maven
+      # Configura el ambiente de Java, esencial para Maven
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'    # Asegúrate de que esta versión coincida con la de tu pom.xml
+        cache: 'maven'        # Activa el caché para dependencias de Maven (más rápido)
+
+    - name:  Compilar y Ejecutar TODOS los Tests (mvn verify)
+      # El comando 'verify' es el ideal para CI:
+      # 1. Compila el código fuente.
+      # 2. Descarga dependencias.
+      # 3. Ejecuta TODOS los tests de JUnit (usando el plugin Surefire).
+      # Si algún test falla, este comando devolverá un error y el Job FALLARÁ.
+      run: mvn clean verify
