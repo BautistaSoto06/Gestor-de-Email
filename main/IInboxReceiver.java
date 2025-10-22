@@ -1,8 +1,8 @@
-
 package main;
 
 
 public interface IInboxReceiver {
+	
 	//lista de correos en la bandeja de entrada
 	String[][] getInboxEmails();
 	

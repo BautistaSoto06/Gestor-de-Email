@@ -30,7 +30,7 @@ public class SendMail implements ISend {
         String recs = String.join(", ", recipients);
         return new String[]{subject, content, sender, recs};
     }
-
+    
     // Envía el correo electrónico.
     @Override
     public void send() {
