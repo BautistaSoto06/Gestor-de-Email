@@ -1,10 +1,10 @@
+package com.app;
 
-
-import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
-import main.ISend;
-import main.SendMail;
+import java.util.Arrays;
+import com.app.ISend;
+import com.app.SendMail;
+import org.junit.jupiter.api.Test;
 
 public class TestSendEmail {
 

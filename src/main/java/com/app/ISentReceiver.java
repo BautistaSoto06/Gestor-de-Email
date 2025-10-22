@@ -1,4 +1,5 @@
-package main;
+package com.app;
+
 
 public interface ISentReceiver {
 	//lista de correos enviados

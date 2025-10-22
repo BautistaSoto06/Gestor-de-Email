@@ -1,6 +1,4 @@
-
-package main;
-
+package com.app;
 
 public interface ISend {
     // Devuelve la información actual del correo a enviar (por ejemplo, destinatarios, asunto, contenido).
