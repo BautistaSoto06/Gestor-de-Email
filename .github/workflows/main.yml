@@ -1,0 +1,28 @@
+name: Maven CI - Ejecutar Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout del Código (¡Paso Faltante!)
+      uses: actions/checkout@v4 
+      # Esta acción CLONA tu repositorio y hace que el 'pom.xml' esté disponible.
+
+    - name: 🛠️ Configurar Java y Maven
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'maven'
+
+    - name: 🧪 Compilar y Ejecutar TODOS los Tests (mvn verify)
+      run: mvn clean verify
