@@ -1,4 +1,13 @@
-C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\ISend.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\SendMail.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IContacto.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IInboxReceiver.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\CorreoSpam.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\EditarContacto.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\ISchedule.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\GestorContactos.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\ISend.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\ISentReceiver.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IEliminarContacto.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IGestorContacto.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IFiltro.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\ICrearContacto.java

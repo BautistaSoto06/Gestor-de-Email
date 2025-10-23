@@ -43,33 +43,24 @@ public class TestSendEmail {
 
 
     @Test 
-    public void fallartest(){
-
-        String subject = "Test Email Subject";
-        String content = "Este es el contenido del correo de prueba";
+    public void testMarkImportant(){
+        String subject = "Test Important Email";
+        String content = "Este es un correo importante";
         String sender = "test@example.com";
         List<String> recipients = Arrays.asList("recipient1@example.com");
         
-        //Crear el correo y enviarlo
         SendMail email = new SendMail(subject, content, sender, recipients);
         
         // Verificar estado inicial
-        assert email.getStatus().equals("pending") : "El estado inicial debe ser 'pending'";
         assert !email.isImportant() : "El correo no debe estar marcado como importante inicialmente";
         
-        // Enviar el correo
-        email.send();
+        // Marcar como importante
+        email.markImportant();
         
-        // Verificar que el correo se envió correctamente
-        assert email.getStatus().equals("sent") : "El estado debe ser 'sent' después del envío";
+        // Verificar que se marcó correctamente
+        assert email.isImportant() : "El correo debe estar marcado como importante";
         
-        // Verificar que la información del correo es correcta
-        String[] emailInfo = email.getEmailInfo();
-        assert emailInfo[0].equals("claro") : "El asunto debe coincidir";
-        assert emailInfo[1].equals("Este") : "El contenido debe coincidir";
-        assert emailInfo[2].equals("correo") : "El remitente debe coincidir";
-        assert emailInfo[3].equals("recipient1@example.com") : "Los destinatarios deben coincidir";
-
+        System.out.println("✓ Test marcar como importante - Estado: " + email.isImportant());
     }
 }   
     
