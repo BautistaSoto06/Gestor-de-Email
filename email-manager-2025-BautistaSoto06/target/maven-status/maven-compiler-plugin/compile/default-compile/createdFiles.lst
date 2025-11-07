@@ -1,0 +1,12 @@
+com\app\IGestorContacto.class
+com\app\IFiltro.class
+com\app\SendMail.class
+com\app\GestorContactos.class
+com\app\IInboxReceiver.class
+com\app\IContacto.class
+com\app\ISentReceiver.class
+com\app\ISend.class
+com\app\CorreoSpam.class
+com\app\ICrearContacto.class
+com\app\EditarContacto.class
+com\app\IEliminarContacto.class
