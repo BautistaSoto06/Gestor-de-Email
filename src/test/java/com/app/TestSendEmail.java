@@ -1,97 +1,40 @@
 package com.app;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import java.util.Arrays;
-import java.util.HashMap;
-
-import com.app.ISend;
-import com.app.SendMail;
 import org.junit.jupiter.api.Test;
 
 
 public class TestSendEmail {
 
     @Test
-    public void testSendEmail() {
-        //Configurar los datos del test
-        String subject = "Test Email Subject";
-        String content = "Este es el contenido del correo de prueba";
-        String sender = "test@example.com";
-        List<String> recipients = Arrays.asList("recipient1@example.com");
+    public void enviarCorreoyRecibirTest() {
+        String asunto = "Prueba de correo";
+        String contenido = "Este es un correo de prueba.";
+        Usuario remitente = new Usuario("remitente@example.com");
+        Usuario destinatario = new Usuario("destinatario@example.com");
         
-        //Crear el correo y enviarlo
-        SendMail email = new SendMail(subject, content, sender, recipients);
+        List<String> recipients = Arrays.asList(destinatario.getEmail());
+
+        remitente.enviarCorreo(asunto, contenido, recipients, destinatario);
+
         
-        // Verificar estado inicial
-        assert email.getStatus().equals("pending") : "El estado inicial debe ser 'pending'";
-        assert !email.isImportant() : "El correo no debe estar marcado como importante inicialmente";
+        // Obtenemos ambas bandejas
+        BandejaRecibidos bandejaRemitente = remitente.getBandeja();
+        BandejaRecibidos bandejaDestinatario = destinatario.getBandeja();
+
+        //bandeja de destinatario debe tener 1 correo
+        assertEquals(1, bandejaDestinatario.getCorreos().size()); 
         
-        // Enviar el correo
-        email.send();
-        
-        // Verificar que el correo se envió correctamente
-        assert email.getStatus().equals("sent") : "El estado debe ser 'sent' después del envío";
-        
-        // Verificar que la información del correo es correcta
-        String[] emailInfo = email.getEmailInfo();
-        assert emailInfo[0].equals(subject) : "El asunto debe coincidir";
-        assert emailInfo[1].equals(content) : "El contenido debe coincidir";
-        assert emailInfo[2].equals(sender) : "El remitente debe coincidir";
-        assert emailInfo[3].equals("recipient1@example.com") : "Los destinatarios deben coincidir";
-        
+        //bandeja de remitente debe estar vacía
+        assertEquals(0, bandejaRemitente.getCorreos().size()); 
+
+        Correo correoRecibido = bandejaDestinatario.getCorreos().get(0);
+        // Todos estos métodos funcionarán si guardaste Correo.java
+        assertEquals(asunto, correoRecibido.getAsunto());
+        assertEquals(contenido, correoRecibido.getContenido());
+        assertEquals(remitente.getEmail(), correoRecibido.getRemitente());
+        assertEquals(recipients, correoRecibido.getDestinatarios());
     }
-
-
-
-    @Test
-    public void testWasReceivedBy(){
-        String subject = "Test Email Subject";
-        String content = "Este es el contenido del correo de prueba";
-        String sender = "test@example.com";
-        List<String> recipients = Arrays.asList("recipient1@example.com");
-        SendMail email = new SendMail(subject, content, sender, recipients);
-        
-        assert email.getStatus().equals("pending") : "El estado inicial debe ser 'pending'";
-
-        email.send();
-        assert email.getStatus().equals("sent") : "El estado debe ser 'sent' después del envío";
-
-        // Verificar si el correo fue recibido por el destinatario
-        assert email.wasReceivedBy("recipient1@example.com") : "El correo debe haber sido recibido por recipient1@example.com";
-        assert !email.wasReceivedBy("recipient2@example.com") : "El correo no debe haber sido recibido por recipient2@example.com";
-    }
-
-   @Test
-    public void testWasReceivedBy2Users(){
-        String subject = "Test Email Subject";
-        String content = "Este es el contenido del correo de prueba";
-        String sender = "test@example.com";
-        List<String> recipients = Arrays.asList("recipient1@example.com", "recipient2@example.com");
-        
-        SendMail email = new SendMail(subject, content, sender, recipients);
-
-        assert email.getStatus().equals("pending") : "El estado inicial debe ser 'pending'";
-
-        // Solo enviamos a un destinatario
-        email.send();
-
-        assert email.getStatus().equals("sent") : "El estado debe ser 'sent' después del envío";
-
-        // Verificar resultados
-        assert email.wasReceivedBy("recipient1@example.com") : "El correo debe haber sido recibido por recipient1@example.com";
-        assert email.wasReceivedBy("recipient2@example.com") : "El correo no debe haber sido recibido por recipient2@example.com";
-        assert !email.wasReceivedBy("recipient3@example.com") : "El estado de entrega para recipient3@example.com debe ser false";
-
-    }
-
 }
-
-
-
-
-
-
-
-    
-
-    
