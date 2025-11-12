@@ -13,16 +13,14 @@ public class TestSendEmail {
         String asunto = "Prueba de correo";
         String contenido = "Este es un correo de prueba.";
         Usuario remitente = new Usuario("remitente@example.com");
-        Usuario destinatario = new Usuario("destinatario@example.com");
-        
-        List<String> recipients = Arrays.asList(destinatario.getEmail());
+        List<String> correos = Arrays.asList("a@example.com");
+        List<Usuario> destinatarios = Arrays.asList(new Usuario("destinatario@example.com"));
 
-        remitente.enviarCorreo(asunto, contenido, recipients, destinatario);
+        remitente.enviarCorreo(asunto, contenido, correos, destinatarios);
 
-        
         // Obtenemos ambas bandejas
         BandejaRecibidos bandejaRemitente = remitente.getBandeja();
-        BandejaRecibidos bandejaDestinatario = destinatario.getBandeja();
+        BandejaRecibidos bandejaDestinatario = destinatarios.get(0).getBandeja();
 
         //bandeja de destinatario debe tener 1 correo
         assertEquals(1, bandejaDestinatario.getCorreos().size()); 
@@ -31,10 +29,10 @@ public class TestSendEmail {
         assertEquals(0, bandejaRemitente.getCorreos().size()); 
 
         Correo correoRecibido = bandejaDestinatario.getCorreos().get(0);
-        // Todos estos métodos funcionarán si guardaste Correo.java
         assertEquals(asunto, correoRecibido.getAsunto());
         assertEquals(contenido, correoRecibido.getContenido());
         assertEquals(remitente.getEmail(), correoRecibido.getRemitente());
-        assertEquals(recipients, correoRecibido.getDestinatarios());
+        assertEquals(correos, correoRecibido.getDestinatarios());
     }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 }

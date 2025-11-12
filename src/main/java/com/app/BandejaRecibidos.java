@@ -10,7 +10,6 @@ public class BandejaRecibidos {
         this.correosRecibidos = new ArrayList<>();
     }
 
-    // Método para AÑADIR un correo a esta bandeja
     public void agregarCorreo(Correo correo) {
         correosRecibidos.add(correo);
     }

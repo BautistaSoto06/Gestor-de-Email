@@ -21,11 +21,14 @@ public class Usuario {
         return this.miDireccionDeEmail;
     }
 
-    public void enviarCorreo(String subject, String content, List<String> recipients, Usuario destinatario) {
-        Correo correoAEnviar = new Correo(subject, content, this.miDireccionDeEmail, recipients);
-        BandejaRecibidos bandejaDelOtro = destinatario.getBandeja();
-        bandejaDelOtro.agregarCorreo(correoAEnviar);
-        correoAEnviar.setStatus("Enviado");
+    public void enviarCorreo(String asunto, String contenido, List<String> recipients, List<Usuario> destinatariosUsuarios) {
+        Correo correoAEnviar = new Correo(asunto, contenido, this.miDireccionDeEmail, new ArrayList<>(recipients));
+        for (Usuario u : destinatariosUsuarios) {
+        BandejaRecibidos bandeja = u.getBandeja();
+        // opcional: clonar el Correo si quieres estados independientes
+        bandeja.agregarCorreo(correoAEnviar);
+    }
+    correoAEnviar.setStatus("Enviado");
     }
 
 }

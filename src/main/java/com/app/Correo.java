@@ -22,11 +22,6 @@ public class Correo implements ISend {
     }
 
    
-    @Override
-    public String[] getEmailInfo() {
-        String recs = String.join(", ", destinatarios);
-        return new String[]{asunto, contenido, remitente, recs};
-    }
     
     @Override
     public void markImportant() {
