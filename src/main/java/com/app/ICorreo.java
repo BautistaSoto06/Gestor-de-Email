@@ -1,12 +1,12 @@
 package com.app;
 
-public interface ISend {
+public interface ICorreo {
 
     // Envía el correo electrónico.
     void send();
 
     // Marca el correo como importante.
-    void markImportant();
+    void marcarImportante();
 
     // Devuelve el estado del envío (por ejemplo, "Enviado", "Error").
     String getStatus();

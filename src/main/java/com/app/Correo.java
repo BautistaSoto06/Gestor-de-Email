@@ -2,13 +2,13 @@ package com.app;
 import java.util.List;
 
 
-public class Correo implements ISend { 
+public class Correo implements ICorreo { 
     
     private String asunto;
     private String contenido;
     private String remitente;
     private List<String> destinatarios;
-    private boolean important;
+    private boolean importante;
     private String status;
     
     // Tu constructor 
@@ -17,16 +17,20 @@ public class Correo implements ISend {
         this.contenido = contenido;
         this.remitente = remitente;
         this.destinatarios = destinatarios;
-        this.important = false;
+        this.importante = false;
         this.status = "pending"; 
     }
 
    
-    
     @Override
-    public void markImportant() {
-        important = true;
+    public void marcarImportante() {
+        this.importante = true;
     }
+
+    public boolean esImportante() {
+        return importante;
+    }
+    
 
     @Override
     public String getStatus() {
