@@ -28,22 +28,14 @@ public class Usuario {
     }
 
     public void enviarCorreo(String asunto, String contenido, List<String> recipients, List<Usuario> destinatariosUsuarios,Boolean importante) {
-
-        
-        Correo correoEnviado = new Correo(asunto, contenido, this.miDireccionDeEmail,new ArrayList<>(recipients)
-        );
-
+        Correo correoEnviado = new Correo(asunto, contenido, this.miDireccionDeEmail,new ArrayList<>(recipients));
         if (Boolean.TRUE == importante) {
             correoEnviado.marcarImportante();
         }
 
         // Copias independientes a cada destinatario
         for (Usuario u : destinatariosUsuarios) {
-            Correo copia = new Correo(
-                    asunto, contenido, this.miDireccionDeEmail,
-                    new ArrayList<>(recipients)
-            );
-
+            Correo copia = new Correo(asunto, contenido, this.miDireccionDeEmail,new ArrayList<>(recipients));
             copia.setStatus("Recibido");
             u.getBandeja().agregarCorreo(copia);
         }

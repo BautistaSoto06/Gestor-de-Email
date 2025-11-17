@@ -21,17 +21,16 @@ public class Correo implements ICorreo {
         this.status = "pending"; 
     }
 
-   
     @Override
     public void marcarImportante() {
         this.importante = true;
     }
 
+    @Override
     public boolean esImportante() {
         return importante;
     }
     
-
     @Override
     public String getStatus() {
         return status;

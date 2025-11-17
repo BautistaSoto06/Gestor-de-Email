@@ -4,48 +4,46 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom; 
 
 public class Borradores implements IBorradores {
     
-    // Almacenamiento simple en memoria
-    private Map<String, SendMail> borradores = new HashMap<>();
+    private Map<String, Correo> almacenDeBorradores = new HashMap<>();
     
-
-    //guardar borrador de forma manual
+    
     @Override
-    public void guardarBorrador(SendMail borrador) {
-        if (borrador != null) {
-            String id = generarId(borrador);
-            borradores.put(id, borrador);
+    public String guardarBorrador(Correo borrador) {
+        if (borrador == null) {
+            return null;
         }
+        String id = generarId(borrador);
+        almacenDeBorradores.put(id, borrador);
+        
+        return id;
     }
 
-    //cargar borrador por id
     @Override
-    public SendMail cargarBorrador(String borradorId) {
-        return borradores.get(borradorId);
+    public Correo cargarBorrador(String borradorId) {
+        return almacenDeBorradores.get(borradorId);
     }
     
-    //listar todos los borradores
     @Override
-    public List<SendMail> listarBorradores() {
-        return new ArrayList<>(borradores.values());
+    public List<Correo> listarBorradores() {
+        return new ArrayList<>(almacenDeBorradores.values());
     }
 
-    //Eliminar borrador por id
     @Override
     public void eliminarBorrador(String borradorId) {
-        borradores.remove(borradorId);
+        almacenDeBorradores.remove(borradorId);
     }
 
-    // Verificar si un borrador existe
     @Override
     public boolean existeBorrador(String borradorId) {
-        return borradores.containsKey(borradorId);
+        return almacenDeBorradores.containsKey(borradorId);
     }
-    
-    // Método auxiliar para generar IDs simples
-    private String generarId(SendMail borrador) {
-        return "draft_" + System.currentTimeMillis();
+
+    private String generarId(Correo borrador) {
+        long id = ThreadLocalRandom.current().nextLong(1000, 100000);
+        return Long.toString(id);
     }
 }

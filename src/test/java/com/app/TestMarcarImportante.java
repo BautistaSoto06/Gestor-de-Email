@@ -17,7 +17,7 @@ public class TestMarcarImportante {
         List<Usuario> destinatarios = Arrays.asList(new Usuario("destinatario@example.com"));
 
         // Enviar correo y marcar como importante
-        remitente.enviarCorreo(asunto, contenido, correos, destinatarios, true);
+        remitente.enviarCorreo(asunto, contenido, correos, destinatarios , true);
 
         // Bandejas
         BandejaRecibidos bandejaRemitente = remitente.getBandeja();                // recibidos del remitente
@@ -57,7 +57,6 @@ public class TestMarcarImportante {
 
         // Enviar correo y marcar como importante
         remitente.enviarCorreo(asunto, contenido, correos, destinatarios, true);
-
         // Bandejas
         BandejaRecibidos bandejaRemitente = remitente.getBandeja();                // recibidos del remitente
         BandejaRecibidos bandejaDestinatario = destinatarios.get(0).getBandeja();  // recibidos del destino

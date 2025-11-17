@@ -1,28 +1,23 @@
-package com.app;
+package com.app; 
 
-public abstract class EditarContacto {
 
-    private String nombre;
-    private String email;
 
-    public EditarContacto() {
+
+public class EditarContacto {
+
+    protected GestorContactos gestor;
+    protected String email;
+    protected String nombre;
+    
+    private EditarContacto() {
     }
 
-    public abstract void editarContacto();
-
-    public String getNombre() {
-        return nombre;
+    public static void editarNombre(Contacto contacto, String nuevoNombre){
+        contacto.setNombre(nuevoNombre);
+    }
+    
+    public static void editarMail(Contacto contacto, String nuevoEmail){
+        contacto.setEmail(nuevoEmail);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
