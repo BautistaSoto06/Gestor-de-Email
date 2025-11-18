@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 public class EliminarContactoTest {
 
     @Test
-    public void editarContactoTest() {
+    public void EliminarContactoTest() {
         GestorContactos listaContactos = new GestorContactos();
         Contacto contactoOriginal = new Contacto("Lautaro Lopez Lecube", "lautarolecube@gmail.com");
         listaContactos.add(contactoOriginal);
 
-        EditarContacto.editarNombre(contactoOriginal, "Lautaro Editado");
+        listaContactos.eliminarContacto("Lautaro Lopez Lecube");
 
-        assertEquals("Lautaro Editado", contactoOriginal.getNombre());
+        assertEquals(0, listaContactos.tamañoLista());
     }
 }
 

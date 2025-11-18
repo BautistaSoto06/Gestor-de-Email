@@ -21,7 +21,6 @@ public class BandejaDeEliminadosTest {
         Correo correo = new Correo(asunto, contenido, remitente, destinatarios);
 
         bandeja.moverAEliminados(correo);
-        
         // Pedimos el ID a la misma bandeja
         String idGenerado = bandeja.getIdDeCorreo(correo);
 
@@ -34,7 +33,6 @@ public class BandejaDeEliminadosTest {
     @Test
     public void testRestaurarCorreo() {
         BandejaDeEliminados bandeja = new BandejaDeEliminados();
-
         Correo correo = new Correo("A", "B", "rem@test.com", Arrays.asList("dest@test.com"));
         bandeja.moverAEliminados(correo);
         

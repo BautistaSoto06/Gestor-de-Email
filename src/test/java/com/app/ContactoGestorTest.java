@@ -21,7 +21,7 @@ public class ContactoGestorTest {
         gestor.crearContacto("Ana","ana@test.com");
         gestor.add(contacto);
         assertTrue(gestor.tamañoLista() >= 1);
-        List<Contacto> encontrados = gestor.buscarPorNombre("an");
+        List<Contacto> encontrados = gestor.buscarPorNombre("ana");
         assertNotNull(encontrados);
 
         List<Contacto> res = gestor.eliminarContacto("ana");

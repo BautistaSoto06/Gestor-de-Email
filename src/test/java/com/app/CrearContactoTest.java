@@ -13,7 +13,7 @@ public class CrearContactoTest {
 
         Contacto contacto = new Contacto(nombre, email);
         listaContactos.add(contacto);
-
+        
         assertEquals(nombre, contacto.getNombre());
         assertEquals(email, contacto.getEmail());
         assertEquals(1, listaContactos.tamañoLista());

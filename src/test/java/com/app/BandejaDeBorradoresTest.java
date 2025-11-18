@@ -57,6 +57,7 @@ public class BandejaDeBorradoresTest {
         String remitente = "remitente@test.com";
         List<String> destinatarios = Arrays.asList("dest@test.com");
         Correo correoDePrueba = new Correo(asunto, contenido, remitente, destinatarios);
+
         String idGenerado = bandeja.guardarNuevoBorrador(correoDePrueba);    
         Correo correoCargado = bandeja.abrirBorrador(idGenerado);
 
@@ -74,7 +75,6 @@ public class BandejaDeBorradoresTest {
         String remitente = "remitente@test.com";
         List<String> destinatarios = Arrays.asList("dest@test.com");
         Correo correoDePrueba = new Correo(asunto, contenido, remitente, destinatarios);
-        
         Correo correoCargado = bandeja.abrirBorrador("id-falso-123");
 
         assertNull(correoCargado); 

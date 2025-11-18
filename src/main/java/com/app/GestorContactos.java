@@ -46,16 +46,17 @@ public class GestorContactos {
         }
 
         public List<Contacto> eliminarContacto(String criterio){
-        List<Contacto> resultados = new ArrayList<>();
+        List<Contacto> contactosParaEliminar = new ArrayList<>();
         String criterioLower = criterio.toLowerCase();
         for(Contacto contacto: listaContactos){
-        //Buscamos por el nombre del contacto 
-        String nombreContacto = contacto.getNombre().toLowerCase();
+            String nombreContacto = contacto.getNombre().toLowerCase();
             if(nombreContacto.contains(criterioLower)){
-                resultados.remove(contacto);
+                // Agregamos a la lista temporal, NO borramos todavía
+                contactosParaEliminar.add(contacto); 
             }
         }
-        return resultados;
-        }
+        listaContactos.removeAll(contactosParaEliminar);
+        return contactosParaEliminar;
+    }
 
     }

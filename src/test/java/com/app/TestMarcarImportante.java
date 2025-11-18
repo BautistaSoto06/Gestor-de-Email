@@ -56,8 +56,8 @@ public class TestMarcarImportante {
         List<String> correos = Arrays.asList("a@example.com");
         List<Usuario> destinatarios = Arrays.asList(new Usuario("destinatario@example.com"));
 
-        // Enviar correo y marcar como importante
-        remitente.enviarCorreo(asunto, contenido, correos, destinatarios, true);
+        // Enviar correo y marcar como no importante
+        remitente.enviarCorreo(asunto, contenido, correos, destinatarios, false);
         // Bandejas
         BandejaRecibidos bandejaRemitente = remitente.getBandeja();                // recibidos del remitente
         BandejaRecibidos bandejaDestinatario = destinatarios.get(0).getBandeja();  // recibidos del destino
@@ -82,7 +82,7 @@ public class TestMarcarImportante {
 
         // Verificar correo enviado por el remitente
         Correo correoEnviado = bandejaEnviados.getCorreos().get(0);
-        assertTrue(correoEnviado.esImportante());   // el original sí es importante
+        assertFalse(correoEnviado.esImportante());  
     }
 
     

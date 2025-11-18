@@ -11,6 +11,8 @@ public class ContactoValidationTest {
         assertEquals("Nombre", contacto.getNombre());
         assertEquals("mail@test.com", contacto.getEmail());
 
+
+        
         contacto.validarNombre("Nombre");
         contacto.validarEmail("otro@test.com");
     }

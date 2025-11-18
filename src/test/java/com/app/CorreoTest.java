@@ -18,6 +18,7 @@ public class CorreoTest {
 
         c.marcarLeido();
         assertTrue(c.isLeido());
+
         c.marcarNoLeido();
         assertFalse(c.isLeido());
 
@@ -43,7 +44,6 @@ public class CorreoTest {
         BandejaRecibidos bandeja = new BandejaRecibidos();
         
         Correo c2 = new Correo("Nuevo", "Texto", "rem@test.com", Arrays.asList("test@test.com"));
-        
         bandeja.agregarCorreo(c2);
 
         assertEquals(1, bandeja.getNoLeidos().size());
