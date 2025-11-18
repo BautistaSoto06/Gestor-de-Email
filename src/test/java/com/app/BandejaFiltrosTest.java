@@ -18,19 +18,16 @@ public class BandejaFiltrosTest {
     public void setUp() {
         bandeja = new BandejaRecibidos();
 
-        // 1. Correo Importante: Usamos 'marcarImportante()' en lugar de setImportante
+        
         cJavaImportante = new Correo("Curso Java", "Aprender Streams", "profe@java.com", new ArrayList<>());
-        cJavaImportante.marcarImportante(); // ESTE ES EL MÉTODO QUE SÍ TIENES
+        cJavaImportante.marcarImportante(); 
 
-        // 2. Correo No Importante (nace false por defecto en tu constructor)
         cJavaNoImportante = new Correo("Duda Java", "No entiendo nada", "alumno@java.com", new ArrayList<>());
 
-        // 3. Otro correo Importante
         cOtro = new Correo("Oferta", "Descuentos en ropa", "tienda@shop.com", new ArrayList<>());
-        cOtro.marcarImportante(); // ESTE ES EL MÉTODO QUE SÍ TIENES
+        cOtro.marcarImportante(); 
 
-        // Agregamos a la bandeja usando 'agregarCorreo' en lugar de recibirCorreo
-        bandeja.agregarCorreo(cJavaImportante);     // ESTE ES EL MÉTODO QUE SÍ TIENES
+        bandeja.agregarCorreo(cJavaImportante);     
         bandeja.agregarCorreo(cJavaNoImportante);
         bandeja.agregarCorreo(cOtro);
     }

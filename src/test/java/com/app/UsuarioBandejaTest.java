@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class UsuarioBandejaTest {
 
     @Test
-    public void usuarioAndBandejas() {
+    public void usuarioyBandejas() {
         Usuario u = new Usuario("me@test.com");
         assertEquals("me@test.com", u.getEmail());
         Usuario dest = new Usuario("tu@test.com");
@@ -17,5 +17,8 @@ public class UsuarioBandejaTest {
 
         BandejaEnviados be = u.getBandejaEnviados();
         assertTrue(be.getCorreos().size() >= 0);
+
+
+        
     }
 }
