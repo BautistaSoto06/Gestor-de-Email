@@ -42,7 +42,7 @@ public class BandejaDeBorradoresTest {
         correoDePrueba.setStatus("pending");
 
         assertEquals("pending", correoDePrueba.getStatus());
-
+ 
         
         bandeja.guardarNuevoBorrador(correoDePrueba);
 

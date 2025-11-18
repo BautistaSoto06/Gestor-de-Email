@@ -18,7 +18,6 @@ public class Borradores implements IBorradores {
         }
         String id = generarId(borrador);
         almacenDeBorradores.put(id, borrador);
-        
         return id;
     }
 

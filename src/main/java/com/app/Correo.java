@@ -10,6 +10,7 @@ public class Correo implements ICorreo {
     private List<String> destinatarios;
     private boolean importante;
     private String status;
+    private boolean leido;
     
     // Tu constructor 
     public Correo(String asunto, String contenido, String remitente, List<String> destinatarios) {
@@ -36,9 +37,18 @@ public class Correo implements ICorreo {
         return status;
     }
     
-    
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public void marcarLeido() {
+        this.leido = true;
+    }
+    
+    @Override
+    public void marcarNoLeido() {
+        this.leido = false;
     }
 
    
@@ -46,5 +56,6 @@ public class Correo implements ICorreo {
     public String getContenido() { return contenido; }
     public String getRemitente() { return remitente; }
     public List<String> getDestinatarios() {return destinatarios;}
+    public boolean isLeido() {return leido;}
 
 }
