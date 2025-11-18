@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Usuario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Email Manager</a> &gt; <a href="index.source.html" class="el_package">com.app</a> &gt; <span class="el_source">Usuario.java</span></div><h1>Usuario.java</h1><pre class="source lang-java linenums">package com.app;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Usuario {
+
+    private String miDireccionDeEmail;
+    private BandejaRecibidos miBandeja;
+    private BandejaEnviados bandejaEnviados;
+
+<span class="fc" id="L12">    public Usuario(String email) {</span>
+<span class="fc" id="L13">        this.miDireccionDeEmail = email;</span>
+<span class="fc" id="L14">        this.miBandeja = new BandejaRecibidos();</span>
+<span class="fc" id="L15">        this.bandejaEnviados = new BandejaEnviados();</span>
+<span class="fc" id="L16">    }</span>
+
+    public BandejaRecibidos getBandeja() {
+<span class="fc" id="L19">        return this.miBandeja;</span>
+    }
+
+    public BandejaEnviados getBandejaEnviados() {
+<span class="fc" id="L23">        return this.bandejaEnviados;</span>
+    }
+
+    public String getEmail() {
+<span class="fc" id="L27">        return this.miDireccionDeEmail;</span>
+    }
+
+    public void enviarCorreo(String asunto, String contenido, List&lt;String&gt; recipients, List&lt;Usuario&gt; destinatariosUsuarios,Boolean importante) {
+<span class="fc" id="L31">        Correo correoEnviado = new Correo(asunto, contenido, this.miDireccionDeEmail,new ArrayList&lt;&gt;(recipients));</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (Boolean.TRUE == importante) {</span>
+<span class="fc" id="L33">            correoEnviado.marcarImportante();</span>
+        }
+
+        // Copias independientes a cada destinatario
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (Usuario u : destinatariosUsuarios) {</span>
+<span class="fc" id="L38">            Correo copia = new Correo(asunto, contenido, this.miDireccionDeEmail,new ArrayList&lt;&gt;(recipients));</span>
+<span class="fc" id="L39">            copia.setStatus(&quot;Recibido&quot;);</span>
+<span class="fc" id="L40">            u.getBandeja().agregarCorreo(copia);</span>
+<span class="fc" id="L41">        }</span>
+
+        // Se marca como enviado
+<span class="fc" id="L44">        correoEnviado.setStatus(&quot;Enviado&quot;);</span>
+
+        // Se guarda en Enviados
+<span class="fc" id="L47">        this.bandejaEnviados.agregarCorreo(correoEnviado);</span>
+<span class="fc" id="L48">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -23,6 +23,7 @@ public class TestMarcarImportante {
         BandejaRecibidos bandejaRemitente = remitente.getBandeja();                // recibidos del remitente
         BandejaRecibidos bandejaDestinatario = destinatarios.get(0).getBandeja();  // recibidos del destino
         BandejaEnviados bandejaEnviados = remitente.getBandejaEnviados();          // enviados del remitente
+        
 
         // El destinatario recibe 1 correo
         assertEquals(1, bandejaDestinatario.getCorreos().size());

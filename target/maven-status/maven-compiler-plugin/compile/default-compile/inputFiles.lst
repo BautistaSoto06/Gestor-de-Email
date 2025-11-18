@@ -1,6 +1,6 @@
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\BandejaDeEliminados.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\BandejaRecibidos.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IContacto.java
-C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\BandejaEliminados.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\EditarContacto.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\Usuario.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\Correo.java
@@ -8,6 +8,7 @@ C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\GestorContactos.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\BandejaDeBorradores.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IBorradores.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\Borradores.java
+C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IEliminarCorreo.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IEliminarContacto.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\IGestorContacto.java
 C:\Users\Bautista Soto\Email Manager\src\main\java\com\app\Contacto.java

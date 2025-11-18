@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Correo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Email Manager</a> &gt; <a href="index.source.html" class="el_package">com.app</a> &gt; <span class="el_source">Correo.java</span></div><h1>Correo.java</h1><pre class="source lang-java linenums">package com.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Correo implements ICorreo { 
+    
+    private String asunto;
+    private String contenido;
+    private String remitente;
+    private List&lt;String&gt; destinatarios;
+    private boolean importante;
+    private String status;
+    private boolean leido;
+    
+    // Constructor 1 (El que ya tenías)
+<span class="fc" id="L17">    public Correo(String asunto, String contenido, String remitente, List&lt;String&gt; destinatarios) {</span>
+<span class="fc" id="L18">        this.asunto = asunto;</span>
+<span class="fc" id="L19">        this.contenido = contenido;</span>
+<span class="fc" id="L20">        this.remitente = remitente;</span>
+<span class="fc" id="L21">        this.destinatarios = destinatarios;</span>
+<span class="fc" id="L22">        this.importante = false;</span>
+<span class="fc" id="L23">        this.status = &quot;pending&quot;; </span>
+<span class="fc" id="L24">        this.leido = false;</span>
+<span class="fc" id="L25">    }</span>
+
+    // Constructor 2 (EL NUEVO QUE NECESITAS)
+<span class="nc" id="L28">    public Correo(String remitente, String destinatario, String asunto, String contenido, boolean leido, String status) {</span>
+<span class="nc" id="L29">        this.remitente = remitente;</span>
+<span class="nc" id="L30">        this.destinatarios = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L31">        this.destinatarios.add(destinatario);</span>
+<span class="nc" id="L32">        this.asunto = asunto;</span>
+<span class="nc" id="L33">        this.contenido = contenido;</span>
+<span class="nc" id="L34">        this.leido = leido;</span>
+<span class="nc" id="L35">        this.status = status;</span>
+<span class="nc" id="L36">        this.importante = false;</span>
+<span class="nc" id="L37">    }</span>
+
+    @Override
+    public void marcarImportante() {
+<span class="fc" id="L41">        this.importante = true;</span>
+<span class="fc" id="L42">    }</span>
+
+    @Override
+    public boolean esImportante() {
+<span class="fc" id="L46">        return importante;</span>
+    }
+    
+    @Override
+    public String getStatus() {
+<span class="fc" id="L51">        return status;</span>
+    }
+    
+    public void setStatus(String status) {
+<span class="fc" id="L55">        this.status = status;</span>
+<span class="fc" id="L56">    }</span>
+
+    @Override
+    public void marcarLeido() {
+<span class="fc" id="L60">        this.leido = true;</span>
+<span class="fc" id="L61">    }</span>
+    
+    @Override
+    public void marcarNoLeido() {
+<span class="fc" id="L65">        this.leido = false;</span>
+<span class="fc" id="L66">    }</span>
+
+    // Getters necesarios
+<span class="fc" id="L69">    public String getAsunto() { return asunto; }</span>
+<span class="fc" id="L70">    public String getContenido() { return contenido; }</span>
+<span class="fc" id="L71">    public String getRemitente() { return remitente; }</span>
+<span class="fc" id="L72">    public List&lt;String&gt; getDestinatarios() { return destinatarios; }</span>
+<span class="fc" id="L73">    public boolean isLeido() { return leido; }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

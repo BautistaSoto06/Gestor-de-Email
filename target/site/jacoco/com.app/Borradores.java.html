@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Borradores.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Email Manager</a> &gt; <a href="index.source.html" class="el_package">com.app</a> &gt; <span class="el_source">Borradores.java</span></div><h1>Borradores.java</h1><pre class="source lang-java linenums">package com.app;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom; 
+
+<span class="fc" id="L9">public class Borradores implements IBorradores {</span>
+    
+<span class="fc" id="L11">    private Map&lt;String, Correo&gt; almacenDeBorradores = new HashMap&lt;&gt;();</span>
+    
+    
+    @Override
+    public String guardarBorrador(Correo borrador) {
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (borrador == null) {</span>
+<span class="nc" id="L17">            return null;</span>
+        }
+<span class="fc" id="L19">        String id = generarId(borrador);</span>
+<span class="fc" id="L20">        almacenDeBorradores.put(id, borrador);</span>
+<span class="fc" id="L21">        return id;</span>
+    }
+
+    @Override
+    public Correo cargarBorrador(String borradorId) {
+<span class="fc" id="L26">        return almacenDeBorradores.get(borradorId);</span>
+    }
+    
+    @Override
+    public List&lt;Correo&gt; listarBorradores() {
+<span class="fc" id="L31">        return new ArrayList&lt;&gt;(almacenDeBorradores.values());</span>
+    }
+
+    @Override
+    public void eliminarBorrador(String borradorId) {
+<span class="fc" id="L36">        almacenDeBorradores.remove(borradorId);</span>
+<span class="fc" id="L37">    }</span>
+
+    @Override
+    public boolean existeBorrador(String borradorId) {
+<span class="fc" id="L41">        return almacenDeBorradores.containsKey(borradorId);</span>
+    }
+
+    private String generarId(Correo borrador) {
+<span class="fc" id="L45">        long id = ThreadLocalRandom.current().nextLong(1000, 100000);</span>
+<span class="fc" id="L46">        return Long.toString(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

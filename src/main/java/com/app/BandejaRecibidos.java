@@ -7,14 +7,15 @@ import java.util.stream.Collectors;
 
 
 public class BandejaRecibidos {
-    private List<Correo> correosRecibidos;
+    private List<Correo> correosRecibidos = new ArrayList<>();
 
     public BandejaRecibidos() {
-        this.correosRecibidos = new ArrayList<>();
     }
 
     public void agregarCorreo(Correo correo) {
-        correosRecibidos.add(correo);
+        if (correo != null) {
+            this.correosRecibidos.add(correo);
+        }
     }
 
     public List<Correo> getCorreos() {
@@ -65,7 +66,6 @@ public class BandejaRecibidos {
             .toList();
     }
 
-
     public List<Correo> filtrarPorRemitenteYContenido(String remitenteParcial, String textoContenido) {
     String r = remitenteParcial.toLowerCase();
     String c = textoContenido.toLowerCase();
@@ -78,7 +78,7 @@ public class BandejaRecibidos {
             .filter(porRemitente.and(porContenido))
             .toList();
     }
-
-
-
 }
+    
+
+

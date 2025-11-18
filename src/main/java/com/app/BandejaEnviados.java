@@ -19,8 +19,5 @@ public class BandejaEnviados {
         return this.correos;
     }
 
-    public int cantidadCorreos() {
-        return this.correos.size();
-    }
 }
 

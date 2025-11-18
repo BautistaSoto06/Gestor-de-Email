@@ -1,6 +1,7 @@
 package com.app;
-import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Correo implements ICorreo { 
     
@@ -12,7 +13,7 @@ public class Correo implements ICorreo {
     private String status;
     private boolean leido;
     
-    // Tu constructor 
+    // Constructor 1 (El que ya tenías)
     public Correo(String asunto, String contenido, String remitente, List<String> destinatarios) {
         this.asunto = asunto;
         this.contenido = contenido;
@@ -20,6 +21,7 @@ public class Correo implements ICorreo {
         this.destinatarios = destinatarios;
         this.importante = false;
         this.status = "pending"; 
+        this.leido = false;
     }
 
     @Override
@@ -51,11 +53,11 @@ public class Correo implements ICorreo {
         this.leido = false;
     }
 
-   
+    // Getters necesarios
     public String getAsunto() { return asunto; }
     public String getContenido() { return contenido; }
     public String getRemitente() { return remitente; }
-    public List<String> getDestinatarios() {return destinatarios;}
-    public boolean isLeido() {return leido;}
+    public List<String> getDestinatarios() { return destinatarios; }
+    public boolean isLeido() { return leido; }
 
 }

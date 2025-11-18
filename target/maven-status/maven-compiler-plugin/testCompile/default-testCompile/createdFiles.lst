@@ -1,1 +1,8 @@
-com\app\TestSendEmail.class
+com\app\BorradoresTest.class
+com\app\BusquedaCorreoTest.class
+com\app\ContactoGestorTest.class
+com\app\TestEnviarCorreosyRecibirlos.class
+com\app\CrearContactoTest.class
+com\app\EliminarContactoTest.class
+com\app\BandejaDeBorradoresTest.class
+com\app\EditarContactoTest.class
